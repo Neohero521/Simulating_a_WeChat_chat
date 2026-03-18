@@ -1,0 +1,11 @@
+{
+  "display_name": "微信聊天界面",
+  "loading_order": 10,
+  "requires": [],
+  "optional": [],
+  "js": "index.js",
+  "css": "style.css",
+  "author": "SillyTavern 微信聊天插件",
+  "version": "2.0.0",
+  "homePage": "https://github.com/Neohero521/Simulating_a_WeChat_chat"
+}
