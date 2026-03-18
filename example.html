@@ -1,0 +1,105 @@
+<!-- 插件设置面板UI（插入到ST扩展设置页） -->
+<div class="wechat-extension-settings">
+    <div class="inline-drawer">
+        <div class="inline-drawer-toggle inline-drawer-header">
+            <b>微信聊天界面</b>
+            <div class="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
+        </div>
+        <div class="inline-drawer-content">
+            <div class="wechat-extension_block flex-container">
+                <input id="open_wechat_window" class="menu_button" type="submit" value="打开微信聊天窗口" />
+            </div>
+            <div class="wechat-extension_block flex-container">
+                <input id="wechat_auto_open" type="checkbox" />
+                <label for="wechat_auto_open">插件加载时自动打开窗口</label>
+            </div>
+            <div class="wechat-extension_block flex-container">
+                <input id="close_wechat_window" class="menu_button" type="submit" value="关闭微信聊天窗口" style="background-color: var(--error-red);" />
+            </div>
+            <hr class="sysHR" />
+        </div>
+    </div>
+</div>
+
+<!-- 微信聊天界面完整模板 -->
+<div id="wechat_window_template" style="display: none;">
+    <div class="wechat-window" id="wechat_main_window">
+        <header class="header">
+            <div class="back" id="wechat_close_btn" title="关闭窗口"></div>
+            <div id="char-name-display" class="title">未选择角色</div>
+            <div class="status-indicator" id="status-indicator" style="display: none;">
+                <div class="status-dot" id="status-dot"></div>
+                <span class="status-text" id="status-text">在线</span>
+            </div>
+            <div class="header-actions">
+                <div class="header-btn" id="more-btn" title="更多选项">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <circle cx="6" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="18" cy="12" r="1"/>
+                    </svg>
+                </div>
+            </div>
+        </header>
+
+        <div class="dropdown-menu" id="dropdown-menu">
+            <div class="dropdown-item" id="import-char-item">导入角色卡</div>
+            <div class="dropdown-item" id="chat-bg-item">聊天背景</div>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-item" id="fullscreen-item">全屏模式</div>
+            <div class="dropdown-item" id="streaming-toggle-item">开启伪流式</div>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-item" id="export-chat-item">导出聊天记录</div>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-item" id="delete-all-item">删除全部聊天</div>
+        </div>
+
+        <main class="chat-scroll" id="chat-list">
+            <div class="empty-tip" id="empty-tip">
+                暂无角色卡，请先导入<br>
+                支持 PNG/JSON 格式角色卡
+                <button class="import-btn" id="empty-import-btn">立即导入</button>
+            </div>
+        </main>
+
+        <div class="reply-preview" id="reply-preview">
+            <div class="reply-preview-content" id="reply-preview-content"></div>
+            <button class="reply-preview-cancel" id="reply-preview-cancel">取消引用</button>
+        </div>
+
+        <footer class="footer" id="footer-bar">
+            <div class="mode-switch mode-online" id="mode-switch" title="线上模式">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                </svg>
+                <div class="mode-indicator"></div>
+                <div class="mode-label">线上模式</div>
+            </div>
+            
+            <div class="input-box" id="input-box" contenteditable="true"></div>
+            
+            <button class="send-btn" id="send-btn" disabled>
+                <span class="send-text">发送</span>
+            </button>
+        </footer>
+    </div>
+
+    <div class="msg-actions" id="msg-actions">
+        <div class="msg-action-item" id="msg-action-reply">引用回复</div>
+        <div class="msg-action-item" id="msg-action-copy">复制</div>
+        <div class="msg-action-item" id="msg-action-delete">删除</div>
+    </div>
+
+    <div class="confirm-modal" id="confirm-modal">
+        <div class="modal-content">
+            <div class="modal-text">确定要删除全部聊天记录吗？<br><small>此操作不可撤销</small></div>
+            <div class="modal-btns">
+                <button class="modal-btn cancel-btn" id="cancel-delete">取消</button>
+                <button class="modal-btn confirm-btn" id="confirm-delete">确认</button>
+            </div>
+        </div>
+    </div>
+
+    <input type="file" id="character-import-input" class="hidden-input" accept=".png,.json">
+    <input type="file" id="chat-bg-input" class="hidden-input" accept="image/*">
+
+    <div class="toast" id="toast"></div>
+</div>
