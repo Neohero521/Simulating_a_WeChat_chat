@@ -77,11 +77,7 @@ body {
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 40px 80px rgba(0,0,0,0.9);
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 9990;
+    position: relative;
     transition: all 0.3s ease;
 }
 
@@ -105,7 +101,6 @@ body.fullscreen-mode .wechat-window {
     right: 0;
     bottom: 0;
     z-index: 10000;
-    transform: none;
 }
 
 body.fullscreen-mode .dropdown-menu {
@@ -134,7 +129,7 @@ body.fullscreen-mode .toast {
     flex-shrink: 0;
     position: relative;
 }
-.header .back { width: 12px; height: 12px; border-left: 2px solid #dfdfdf; border-bottom: 2px solid #dfdfdf; transform: rotate(45deg); cursor: pointer; }
+.header .back { width: 12px; height: 12px; border-left: 2px solid #dfdfdf; border-bottom: 2px solid #dfdfdf; transform: rotate(45deg); }
 .header .title { flex: 1; text-align: center; color: #dfdfdf; font-size: 17px; font-weight: 500; }
 
 .status-indicator {
@@ -442,7 +437,6 @@ body.fullscreen-mode .toast {
     padding: 14px 16px;
     font-size: 13px;
     line-height: 1.7;
-    border-radius: 10px;
     color: var(--story-bubble-text);
     user-select: text;
     word-break: break-word;
@@ -1127,34 +1121,4 @@ body.fullscreen-mode .toast {
 }
 .mode-switch-animate {
     animation: modeSwitch 0.4s ease;
-}
-
-/* 插件设置面板样式 */
-.wechat-extension-settings .inline-drawer-content {
-    padding: 12px;
-}
-.wechat-extension_block {
-    margin-bottom: 12px;
-}
-.wechat-extension_block .menu_button {
-    width: 100%;
-    background-color: var(--wechat-green);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 8px 16px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: opacity 0.2s;
-}
-.wechat-extension_block .menu_button:hover {
-    opacity: 0.9;
-}
-.wechat-extension_block input[type="checkbox"] {
-    margin-right: 8px;
-}
-.wechat-extension_block label {
-    color: var(--text-main);
-    font-size: 14px;
-    cursor: pointer;
 }
