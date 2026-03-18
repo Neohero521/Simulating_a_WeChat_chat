@@ -7,7 +7,7 @@ import {
 import { saveSettingsDebounced } from "../../../../script.js";
 
 // 插件基础配置
-const extensionName = "st-wechat-chat-interface";
+const extensionName = "Simulating_a_WeChat_chat";
 const extensionFolderPath = `scripts/extensions/third-party/${extensionName}`;
 const extensionSettings = extension_settings[extensionName];
 const defaultSettings = {
